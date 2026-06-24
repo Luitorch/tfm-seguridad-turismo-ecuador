@@ -99,13 +99,15 @@ class ClusterEvolucion(BaseModel):
 # ---------------------------------------------------------------------------
 class KPIs(BaseModel):
     """Indicadores principales del TFM para el dashboard."""
-    llegadas_pre_crisis: int = Field(..., description="Llegadas pico pre-crisis (BM 2018)")
-    llegadas_crisis: int = Field(..., description="Llegadas en el ano critico (ESI 2024)")
+    pico_pre_crisis_anio: int = Field(..., description="Ano del pico pre-crisis")
+    pico_pre_crisis_valor: int = Field(..., description="Llegadas pico pre-crisis (BM)")
+    crisis_anio: int = Field(..., description="Ano critico (ESI)")
+    crisis_valor: int = Field(..., description="Llegadas en el ano critico (ESI)")
     variacion_pct: float = Field(..., description="% de variacion pico->crisis")
     lag_optimo: int = Field(..., description="Lag (anos) con mayor |r| entre homicidios y llegadas")
-    correlacion_lag_optimo: float = Field(..., description="Pearson r en el lag optimo")
+    pearson_r_lag_optimo: float = Field(..., description="Pearson r en el lag optimo")
     mercado_mas_sensible: str = Field(..., description="Mercado emisor con r mas negativo")
-    correlacion_mercado_mas_sensible: float
+    mercado_pearson_r: float
     cluster_mas_colapsado: int = Field(..., description="Cluster con peor variacion 2023->2024")
     cluster_mas_colapsado_nombre: str
     cluster_mas_colapsado_cambio_pct: float

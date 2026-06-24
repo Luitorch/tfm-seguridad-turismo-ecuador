@@ -1,7 +1,12 @@
 // Cliente API para el backend FastAPI del TFM
-// En dev usa el rewrite /api/* -> http://localhost:8000/api/* (ver next.config.mjs)
+// En el navegador usa el rewrite /api/* -> http://localhost:8000/api/* (ver next.config.mjs).
+// En el servidor (Server Components / SSR) Node necesita una URL absoluta, así que
+// apunta directamente al backend (configurable con la variable de entorno API_BASE).
 
-const BASE = '/api';
+const BASE =
+  typeof window === 'undefined'
+    ? process.env.API_BASE ?? 'http://localhost:8000/api'
+    : '/api';
 
 export interface SerieLlegada {
   anio: number;

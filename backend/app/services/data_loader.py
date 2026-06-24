@@ -204,14 +204,17 @@ def get_kpis() -> dict:
     pre = serie[serie["anio"] <= 2019]
     fila_pre = pre.loc[pre["llegadas"].idxmax()]
     llegadas_pre = int(fila_pre["llegadas"])
+    anio_pre = int(fila_pre["anio"])
 
     # Llegadas en crisis: ultimo ano ESI disponible (2024)
     crisis = serie[serie["anio"] >= 2023]
     if not crisis.empty:
         fila_crisis = crisis.loc[crisis["anio"].idxmax()]
         llegadas_crisis = int(fila_crisis["llegadas"])
+        anio_crisis = int(fila_crisis["anio"])
     else:
         llegadas_crisis = int(serie.iloc[-1]["llegadas"])
+        anio_crisis = int(serie.iloc[-1]["anio"])
 
     variacion_pct = round((llegadas_crisis - llegadas_pre) / llegadas_pre * 100, 2)
 
@@ -237,13 +240,15 @@ def get_kpis() -> dict:
     fila_prov = prov_valid.loc[prov_valid["variacion_pct"].idxmin()]
 
     _KPIS_CACHE = {
-        "llegadas_pre_crisis": llegadas_pre,
-        "llegadas_crisis": llegadas_crisis,
+        "pico_pre_crisis_anio": anio_pre,
+        "pico_pre_crisis_valor": llegadas_pre,
+        "crisis_anio": anio_crisis,
+        "crisis_valor": llegadas_crisis,
         "variacion_pct": variacion_pct,
         "lag_optimo": lag_opt,
-        "correlacion_lag_optimo": corr_lag_opt,
+        "pearson_r_lag_optimo": corr_lag_opt,
         "mercado_mas_sensible": mercado_top,
-        "correlacion_mercado_mas_sensible": r_mkt,
+        "mercado_pearson_r": r_mkt,
         "cluster_mas_colapsado": int(cluster_col["cluster"]),
         "cluster_mas_colapsado_nombre": cluster_col["nombre"],
         "cluster_mas_colapsado_cambio_pct": round(float(cluster_col["cambio_pct"]), 2),
