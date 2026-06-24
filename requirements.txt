@@ -1,0 +1,28 @@
+# Entorno de análisis del piloto experimental (notebooks/ y src/analysis/)
+# TFM - Luis Torres - UNIR
+# Python 3.12.4
+#
+# Reproducción: python -m venv .venv && .venv\Scripts\activate && pip install -r requirements.txt
+# (El backend del dashboard tiene su propio archivo en backend/requirements.txt)
+
+# Procesamiento e ingesta
+duckdb==1.5.1
+pandas==2.2.2
+numpy==1.26.4
+openpyxl==3.1.2
+
+# Análisis estadístico
+scipy==1.13.1
+statsmodels==0.14.2
+scikit-learn==1.4.2
+kmodes==0.12.2
+
+# Visualización
+matplotlib==3.8.4
+seaborn==0.13.2
+plotly==5.22.0
+
+# Notebooks y compilación del documento
+jupyter==1.0.0
+notebook==7.0.8
+python-docx==1.2.0

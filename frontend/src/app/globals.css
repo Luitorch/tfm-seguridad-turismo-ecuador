@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-slate-200 p-6;
+  }
+  .card-title {
+    @apply text-lg font-semibold text-slate-900 mb-2;
+  }
+  .card-subtitle {
+    @apply text-sm text-slate-500;
+  }
+  .kpi-value {
+    @apply text-3xl font-bold text-brand-700;
+  }
+  .kpi-label {
+    @apply text-xs uppercase tracking-wider text-slate-500 mt-1;
+  }
+}
