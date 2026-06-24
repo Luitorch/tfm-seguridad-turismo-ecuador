@@ -27,11 +27,10 @@ tfm-seguridad-turismo-ecuador/
 │   ├── raw/              # Fuentes originales (no versionadas por tamaño)
 │   ├── processed/        # Datos agregados con DuckDB
 │   └── FUENTES_DATOS.md
-├── notebooks/            # 5 notebooks Jupyter numerados
+├── notebooks/            # 4 notebooks Jupyter (el análisis espacial A3 va como script en src/analysis/)
 │   ├── 01_exploracion_datos.ipynb
 │   ├── 02_estacionalidad_tendencia.ipynb
 │   ├── 03_correlacion_lag_granger.ipynb
-│   ├── 04_espacial_provincial.ipynb (vía script)
 │   └── 05_kmeans_perfiles.ipynb
 ├── src/
 │   ├── data/             # Ingesta y generación de agregados
